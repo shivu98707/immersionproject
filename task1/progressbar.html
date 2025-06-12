@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Bar Example</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: white;
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 4px;
+      width: 400px;
+    }
+    button {
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+    .progress-wrapper {
+      background-color: #d3d3d3;
+      height: 10px;
+      margin-top: 10px;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      background-color: green;
+      height: 100%;
+      width: 0%;
+      transition: width 2s linear;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Example</h2>
+  <div class="container">
+    <button id="addButton">Add</button>
+    <div id="progressContainer"></div>
+  </div>
+
+  <script>
+    const addButton = document.getElementById("addButton");
+    const progressContainer = document.getElementById("progressContainer");
+
+    addButton.addEventListener("click", () => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "progress-wrapper";
+
+      const bar = document.createElement("div");
+      bar.className = "progress-bar";
+
+      wrapper.appendChild(bar);
+      progressContainer.appendChild(wrapper);
+
+      requestAnimationFrame(() => {
+        bar.style.width = "100%";
+      });
+    });
+  </script>
+
+</body>
+</html>
